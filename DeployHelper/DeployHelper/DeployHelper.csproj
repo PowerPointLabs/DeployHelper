@@ -71,9 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DeployHelper.conf" />
-    <Content Include="WinSCP.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
