@@ -34,6 +34,7 @@ This is the add-in deployment tool for the [PowerPointLabs](https://github.com/P
      - online: to produce and upload web installer package
      - offline: to produce and upload standalone installer package
    - **For InstallerType offline**, leave `Installer Folder URL` blank in the project properties.
+   - **For InstallerType online**, update `Installer Folder URL` to be the correct URL (dev or release).
    - Publish the project to the `publish` folder
 3. Run DeployHelper.exe in the `publish` folder and follow the instructions.
 4. Verify the deployment.
