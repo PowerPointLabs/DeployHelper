@@ -12,7 +12,7 @@ This is the add-in deployment tool for the [PowerPointLabs](https://github.com/P
 
 ### Setup
 1. Get DeployHelper artifacts [here](https://ci.appveyor.com/project/kai33/deployhelper/build/artifacts).
-2. Get DeployHelper.conf [here](https://raw.githubusercontent.com/PowerPointLabs/DeployHelper/master/DeployHelper/DeployHelper/DeployHelper.conf) and fill it with the correct settings.  
+2. Get DeployHelper.conf [here](https://raw.githubusercontent.com/PowerPointLabs/DeployHelper/master/DeployHelper/DeployHelper/DeployHelper.conf) and fill it with the correct settings<sup>*</sup>.  
    - Mage is a component provided by Visual Studio to sign VSTO manifest
    - Key is the deployment certificate (not the dev one, AKA PowerPointLabs.dev.pfx)
    - SFTP address is the server to upload to
@@ -34,7 +34,9 @@ This is the add-in deployment tool for the [PowerPointLabs](https://github.com/P
      - online: to produce and upload web installer package
      - offline: to produce and upload standalone installer package
    - **For InstallerType offline**, leave `Installer Folder URL` blank in the project properties.
-   - **For InstallerType online**, update `Installer Folder URL` to be the correct URL (dev or release).
+   - **For InstallerType online**, update `Installer Folder URL` to be the correct URL (dev or release)<sup>*</sup>.
    - Publish the project to the `publish` folder
 3. Run DeployHelper.exe in the `publish` folder and follow the instructions.
-4. Verify the deployment.
+4. Verify the deployment<sup>*</sup>.
+
+<sup>*</sup> Details can be found in the internal documents.
