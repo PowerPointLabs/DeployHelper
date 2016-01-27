@@ -181,22 +181,44 @@ namespace DeployHelper
 
         private void InitDeployInfo()
         {
-            PrintInfo("You are going to deploy PowerPointLabs\r\n" +
-                      "version: ", _version);
+            PrintInfo("\nYou are going to deploy PowerPointLabs\r\n" +
+                      "version (got from Project property): ", _version);
             try
             {
                 var currentConfig = new XmlDocument();
                 currentConfig.Load(_dirBuildConfig);
 
-                var vstoNode = currentConfig.GetElementsByTagName("value");
-                _releaseType = vstoNode[0].InnerText;
-                _installerType = vstoNode[1].InnerText;
-                _configVersion = vstoNode[2].InnerText;
-                _releaseAddress = vstoNode[4].InnerText;
-                _devAddress = vstoNode[5].InnerText;
+                var vstoNodes = currentConfig.GetElementsByTagName("setting");
+                foreach (XmlNode vstoNode in vstoNodes)
+                {
+                    if (vstoNode.Attributes["name"].Value == "ReleaseType")
+                    {
+                        _releaseType = vstoNode.InnerText;
+                    }
+                    else if (vstoNode.Attributes["name"].Value == "InstallerType")
+                    {
+                        _installerType = vstoNode.InnerText;
+                    }
+                    else if (vstoNode.Attributes["name"].Value == "Version")
+                    {
+                        _configVersion = vstoNode.InnerText;
+                    }
+                    else if (vstoNode.Attributes["name"].Value == "ReleaseAddr")
+                    {
+                        _releaseAddress = vstoNode.InnerText;
+                    }
+                    else if (vstoNode.Attributes["name"].Value == "DevAddr")
+                    {
+                        _devAddress = vstoNode.InnerText;
+                    }
+                }
 
+                Console.Write("\nSettings info: \n");
                 PrintInfo("Release Type: ", _releaseType);
                 PrintInfo("Installer Type: ", _installerType);
+                PrintInfo("Version: ", _configVersion);
+                PrintInfo("Release Address: ", _releaseAddress);
+                PrintInfo("Dev Address: ", _devAddress);
             }
             catch
             {
