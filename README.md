@@ -26,7 +26,12 @@ This is the add-in deployment tool for the [PowerPointLabs](https://github.com/P
 
 ### Deploy
 1. If there is newer version of Tutorial.pptx, update it in the `online` and `offline` folder.
-2. Publish the `PowerPointLabs` project:
+2. Make sure you're in the correct branch:
+   - `dev-release` branch is for **dev-release** with **web/online** installer
+   - `release-standalone` branch is for **public-release** with **standalone/offline** installer
+   - `release-web` branch is for **public-release** with **web/online** installer
+3. Make sure the codes are `ALL GREEN` (can build & all test cases passed).
+4. Publish the `PowerPointLabs` project:
    - Update the `Version` and `ReleaseDate` in the `Settings`
    - Update the `ReleaseType` (dev|release) and `InstallerType` (online|offline) in the `Settings`
      - dev: for dev-release and dog-fooding
@@ -36,7 +41,8 @@ This is the add-in deployment tool for the [PowerPointLabs](https://github.com/P
    - **For InstallerType offline**, leave `Installer Folder URL` blank in the project properties.
    - **For InstallerType online**, update `Installer Folder URL` to be the correct URL (dev or release)<sup>*</sup>.
    - Publish the project to the `publish` folder
-3. Run DeployHelper.exe in the `publish` folder and follow the instructions.
-4. Verify the deployment<sup>*</sup>.
+5. Run DeployHelper.exe in the `publish` folder and follow the instructions.
+6. Verify the deployment<sup>*</sup>.
+7. Add tags in Git for the released versions.
 
 <sup>*</sup> Details can be found in the internal documents.
